@@ -30,7 +30,6 @@ function httpReducer(state, action) {
 }
 
 function useHttp(requestFunction, startWithPending = false) {
-  debugger;
   const [httpState, dispatch] = useReducer(httpReducer, {
     status: startWithPending ? "pending" : null,
     data: null,
@@ -39,7 +38,6 @@ function useHttp(requestFunction, startWithPending = false) {
 
   const sendRequest = useCallback(
     async function (requestData) {
-      debugger;
       dispatch({ type: "SEND" });
       try {
         const responseData = await requestFunction(requestData);
